@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics PYQs | NEET Study Hub</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  padding: 22px;
+  background: #172554;
+}
+
+.back {
+  color: #bfdbfe;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #cbd5e1;
+}
+
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section-title {
+  margin: 25px 0 15px;
+}
+
+.chapter {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 17px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.chapter:hover {
+  background: #29384f;
+}
+
+.chapter h3 {
+  margin: 0 0 8px;
+}
+
+.chapter p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+#question-area {
+  display: none;
+  background: #1e293b;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  color: #64748b;
+  padding: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="back" href="index.html">← Back to Dashboard</a>
+  <h1>⚛️ Physics PYQs</h1>
+  <p>NEET Previous Year Questions — Chapter-wise Practice</p>
+</header>
+
+<div class="container">
+
+  <h2 class="section-title">📚 Select Chapter</h2>
+
+  <div class="chapter" onclick="openChapter('Units and Measurements')">
+    <h3>Units and Measurements</h3>
+    <p>Units, dimensions, errors & measurements</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Motion in a Straight Line')">
+    <h3>Motion in a Straight Line</h3>
+    <p>Distance, displacement, velocity & acceleration</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Motion in a Plane')">
+    <h3>Motion in a Plane</h3>
+    <p>Vectors & projectile motion</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Laws of Motion')">
+    <h3>Laws of Motion</h3>
+    <p>Newton's laws & friction</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Work Energy and Power')">
+    <h3>Work, Energy and Power</h3>
+    <p>Work, energy & power</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Rotational Motion')">
+    <h3>Rotational Motion</h3>
+    <p>Torque, angular momentum & rotation</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Gravitation')">
+    <h3>Gravitation</h3>
+    <p>Gravity, satellites & gravitational energy</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Thermodynamics')">
+    <h3>Thermodynamics</h3>
+    <p>Heat, work & thermodynamic processes</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Oscillations')">
+    <h3>Oscillations</h3>
+    <p>Simple harmonic motion</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Waves')">
+    <h3>Waves</h3>
+    <p>Wave motion & sound</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Electrostatics')">
+    <h3>Electrostatics</h3>
+    <p>Electric charge, field & potential</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Current Electricity')">
+    <h3>Current Electricity</h3>
+    <p>Current, resistance & circuits</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Magnetism')">
+    <h3>Magnetism</h3>
+    <p>Magnetic field & force</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Electromagnetic Induction')">
+    <h3>Electromagnetic Induction</h3>
+    <p>Faraday's law & induced current</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Alternating Current')">
+    <h3>Alternating Current</h3>
+    <p>AC circuits & reactance</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Optics')">
+    <h3>Optics</h3>
+    <p>Ray optics & wave optics</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Modern Physics')">
+    <h3>Modern Physics</h3>
+    <p>Atoms, nuclei & dual nature</p>
+  </div>
+
+  <div class="chapter" onclick="openChapter('Semiconductors')">
+    <h3>Semiconductors</h3>
+    <p>Electronic devices</p>
+  </div>
+
+  <div id="question-area">
+    <h2 id="selected-chapter"></h2>
+    <p id="chapter-message">
+      Questions for this chapter will be added here.
+    </p>
+    <button onclick="hideChapter()">← Back to Chapters</button>
+  </div>
+
+</div>
+
+<footer>
+  NEET Study Hub • Physics Practice
+</footer>
+
+<script>
+function openChapter(chapter) {
+  document.getElementById("question-area").style.display = "block";
+  document.getElementById("selected-chapter").innerText = chapter;
+  document.getElementById("chapter-message").innerText =
+    "PYQs and MCQ practice for " + chapter +
+    " will be added here.";
+  document.getElementById("question-area").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function hideChapter() {
+  document.getElementById("question-area").style.display = "none";
+}
+</script>
+
+</body>
+</html>

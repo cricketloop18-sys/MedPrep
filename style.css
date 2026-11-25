@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b1020;
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif;
+}
+
+.app {
+  max-width: 850px;
+  margin: auto;
+  padding: 22px;
+}
+
+header {
+  padding: 15px 0 25px;
+}
+
+header h1 {
+  color: #a78bfa;
+  margin-bottom: 5px;
+  font-size: 30px;
+}
+
+header p, .welcome p, .subject p, .card p {
+  color: #94a3b8;
+}
+
+.welcome {
+  background: linear-gradient(135deg, #312e81, #1e1b4b);
+  padding: 24px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.welcome h2 {
+  margin-top: 0;
+}
+
+.stats, .subjects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: #151d30;
+  border: 1px solid #26334b;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  color: #a78bfa;
+}
+
+.section-title {
+  margin-top: 28px;
+  margin-bottom: 15px;
+}
+
+.subject {
+  padding: 18px;
+  border-radius: 16px;
+  background: #151d30;
+  border: 1px solid #26334b;
+}
+
+.physics {
+  border-left: 4px solid #818cf8;
+}
+
+.chemistry {
+  border-left: 4px solid #22d3ee;
+}
+
+.biology {
+  border-left: 4px solid #34d399;
+  grid-column: 1 / -1;
+}
+
+.subject p {
+  font-size: 14px;
+}
+
+.tasks label {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid #26334b;
+}
+
+.tasks label:last-child {
+  border-bottom: none;
+}
+
+input[type="checkbox"] {
+  accent-color: #8b5cf6;
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.timer {
+  text-align: center;
+}
+
+#timer {
+  font-size: 65px;
+  font-weight: 800;
+  color: #a78bfa;
+  margin: 10px;
+}
+
+button {
+  background: #7c3aed;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #6d28d9;
+}
+
+.mock input {
+  width: 100%;
+  padding: 12px;
+  margin: 7px 0;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #0b1020;
+  color: white;
+  font-size: 16px;
+}
+
+footer {
+  text-align: center;
+  color: #64748b;
+  padding: 25px 0;
+  margin-top: 20px;
+}
+
+@media (max-width: 500px) {
+  .app {
+    padding: 15px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #timer {
+    font-size: 55px;
+  }
+}

@@ -108,11 +108,150 @@ footer {
 
   <h2 class="section-title">📚 Select Chapter</h2>
 
-  <div class="chapter" onclick="openChapter('Units and Measurements')">
-    <h3>Units and Measurements</h3>
-    <p>Units, dimensions, errors & measurements</p>
-  </div>
+  function openChapter(chapter) {
+  document.getElementById("question-area").style.display = "block";
+  document.getElementById("selected-chapter").innerText = chapter;
 
+  let content = "";
+
+  if (chapter === "Units and Measurements") {
+    content = `
+      <h3>Units & Measurements</h3>
+      <p>2019–2026 PYQ-concept practice set</p>
+
+      <div class="chapter">
+        <p><b>Q1.</b> The dimensional formula of energy is:</p>
+        <p>A) ML²T⁻² &nbsp; B) MLT⁻¹<br>
+        C) ML⁻¹T⁻² &nbsp; D) MLT⁻²</p>
+        <details><summary><b>Answer</b></summary><p>A) ML²T⁻²</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q2.</b> If the radius of a sphere has 2% error, the percentage error in its volume is:</p>
+        <p>A) 2% &nbsp; B) 4% &nbsp; C) 6% &nbsp; D) 8%</p>
+        <details><summary><b>Answer</b></summary><p>C) 6%</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q3.</b> How many significant figures are present in 0.005060?</p>
+        <p>A) 2 &nbsp; B) 3 &nbsp; C) 4 &nbsp; D) 5</p>
+        <details><summary><b>Answer</b></summary><p>C) 4</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q4.</b> The dimensional formula of pressure is:</p>
+        <p>A) ML⁻¹T⁻² &nbsp; B) MLT⁻²<br>
+        C) ML²T⁻² &nbsp; D) ML⁻²T⁻¹</p>
+        <details><summary><b>Answer</b></summary><p>A) ML⁻¹T⁻²</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q5.</b> A length is measured as (5.0 ± 0.1) cm. Its percentage error is:</p>
+        <p>A) 1% &nbsp; B) 2% &nbsp; C) 5% &nbsp; D) 10%</p>
+        <details><summary><b>Answer</b></summary><p>B) 2%</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q6.</b> Which quantity is dimensionless?</p>
+        <p>A) Force &nbsp; B) Pressure<br>
+        C) Strain &nbsp; D) Energy</p>
+        <details><summary><b>Answer</b></summary><p>C) Strain</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q7.</b> The least count of a Vernier caliper is 0.01 cm. Main scale reading is 2.4 cm and Vernier coincidence is 5. The reading (zero error absent) is:</p>
+        <p>A) 2.40 cm &nbsp; B) 2.45 cm<br>
+        C) 2.50 cm &nbsp; D) 2.05 cm</p>
+        <details><summary><b>Answer</b></summary><p>B) 2.45 cm</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q8.</b> If x = a²b³ and percentage errors in a and b are 1% and 2%, respectively, the maximum percentage error in x is:</p>
+        <p>A) 4% &nbsp; B) 6% &nbsp; C) 8% &nbsp; D) 10%</p>
+        <details><summary><b>Answer</b></summary><p>B) 8%</p></details>
+      </div>
+    `;
+  } else {
+    content = "<p>Questions will be added soon.</p>";
+  }
+
+  document.getElementById("chapter-message").innerHTML = content;
+  document.getElementById("question-area").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+function openChapter(chapter) {
+  document.getElementById("question-area").style.display = "block";
+  document.getElementById("selected-chapter").innerText = chapter;
+
+  let content = "";
+
+  if (chapter === "Units and Measurements") {
+    content = `
+      <h3>Units & Measurements</h3>
+      <p>2019–2026 PYQ-concept practice set</p>
+
+      <div class="chapter">
+        <p><b>Q1.</b> The dimensional formula of energy is:</p>
+        <p>A) ML²T⁻² &nbsp; B) MLT⁻¹<br>
+        C) ML⁻¹T⁻² &nbsp; D) MLT⁻²</p>
+        <details><summary><b>Answer</b></summary><p>A) ML²T⁻²</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q2.</b> If the radius of a sphere has 2% error, the percentage error in its volume is:</p>
+        <p>A) 2% &nbsp; B) 4% &nbsp; C) 6% &nbsp; D) 8%</p>
+        <details><summary><b>Answer</b></summary><p>C) 6%</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q3.</b> How many significant figures are present in 0.005060?</p>
+        <p>A) 2 &nbsp; B) 3 &nbsp; C) 4 &nbsp; D) 5</p>
+        <details><summary><b>Answer</b></summary><p>C) 4</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q4.</b> The dimensional formula of pressure is:</p>
+        <p>A) ML⁻¹T⁻² &nbsp; B) MLT⁻²<br>
+        C) ML²T⁻² &nbsp; D) ML⁻²T⁻¹</p>
+        <details><summary><b>Answer</b></summary><p>A) ML⁻¹T⁻²</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q5.</b> A length is measured as (5.0 ± 0.1) cm. Its percentage error is:</p>
+        <p>A) 1% &nbsp; B) 2% &nbsp; C) 5% &nbsp; D) 10%</p>
+        <details><summary><b>Answer</b></summary><p>B) 2%</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q6.</b> Which quantity is dimensionless?</p>
+        <p>A) Force &nbsp; B) Pressure<br>
+        C) Strain &nbsp; D) Energy</p>
+        <details><summary><b>Answer</b></summary><p>C) Strain</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q7.</b> The least count of a Vernier caliper is 0.01 cm. Main scale reading is 2.4 cm and Vernier coincidence is 5. The reading (zero error absent) is:</p>
+        <p>A) 2.40 cm &nbsp; B) 2.45 cm<br>
+        C) 2.50 cm &nbsp; D) 2.05 cm</p>
+        <details><summary><b>Answer</b></summary><p>B) 2.45 cm</p></details>
+      </div>
+
+      <div class="chapter">
+        <p><b>Q8.</b> If x = a²b³ and percentage errors in a and b are 1% and 2%, respectively, the maximum percentage error in x is:</p>
+        <p>A) 4% &nbsp; B) 6% &nbsp; C) 8% &nbsp; D) 10%</p>
+        <details><summary><b>Answer</b></summary><p>B) 8%</p></details>
+      </div>
+    `;
+  } else {
+    content = "<p>Questions will be added soon.</p>";
+  }
+
+  document.getElementById("chapter-message").innerHTML = content;
+  document.getElementById("question-area").scrollIntoView({
+    behavior: "smooth"
+  });
+}
   <div class="chapter" onclick="openChapter('Motion in a Straight Line')">
     <h3>Motion in a Straight Line</h3>
     <p>Distance, displacement, velocity & acceleration</p>

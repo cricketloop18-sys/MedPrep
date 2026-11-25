@@ -1,0 +1,78 @@
+<div class="app">
+  <header>
+    <h1>🧬 MedPrep</h1>
+    <p>Your journey to medical school</p>
+  </header>
+
+  <section class="welcome">
+    <h2>Welcome back, Student 👋</h2>
+    <p>Small steps every day lead to big results.</p>
+  </section>
+
+  <section class="stats">
+    <div class="card">
+      <h3>📚 Study Focus</h3>
+      <p>Stay consistent</p>
+      <h2 id="studyHours">0 min</h2>
+    </div>
+
+    <div class="card">
+      <h3>✅ Tasks</h3>
+      <p>Today's progress</p>
+      <h2 id="taskProgress">0/4</h2>
+    </div>
+  </section>
+
+  <h2 class="section-title">My Subjects</h2>
+
+  <section class="subjects">
+    <div class="subject physics">
+      <h3>⚛️ Physics</h3>
+      <p>Concepts & numericals</p>
+    </div>
+
+    <div class="subject chemistry">
+      <h3>🧪 Chemistry</h3>
+      <p>Learn & revise</p>
+    </div>
+
+    <div class="subject biology">
+      <h3>🧬 Biology</h3>
+      <p>NCERT & diagrams</p>
+    </div>
+  </section>
+
+  <h2 class="section-title">Today's Tasks</h2>
+
+  <section class="card tasks">
+    <label><input type="checkbox" class="task"> Physics revision</label>
+    <label><input type="checkbox" class="task"> Physics questions</label>
+    <label><input type="checkbox" class="task"> Chemistry revision</label>
+    <label><input type="checkbox" class="task"> Biology NCERT</label>
+  </section>
+
+  <h2 class="section-title">Focus Timer</h2>
+
+  <section class="card timer">
+    <div id="timer">25:00</div>
+    <p id="timerStatus">Ready to focus?</p>
+
+    <button id="startBtn">Start</button>
+    <button id="resetBtn">Reset</button>
+  </section>
+
+  <h2 class="section-title">Mock Test Tracker</h2>
+
+  <section class="card mock">
+    <input id="physicsScore" type="number" placeholder="Physics marks">
+    <input id="chemistryScore" type="number" placeholder="Chemistry marks">
+    <input id="biologyScore" type="number" placeholder="Biology marks">
+    <button id="saveScore">Save Test</button>
+    <h3 id="totalScore">Total: —</h3>
+  </section>
+
+  <footer>
+    <p>Made for your NEET journey ❤️</p>
+    <p>MedPrep © 2026</p>
+  </footer>
+</div>

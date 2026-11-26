@@ -1,1 +1,1 @@
-# MedPrep
+NEET Study Hub

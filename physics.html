@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +31,7 @@ header {
 
 header h1 {
   margin-bottom: 8px;
+  font-size: 27px;
 }
 
 header p {
@@ -37,61 +39,115 @@ header p {
 }
 
 .container {
-  padding: 20px;
+  padding: 18px;
   max-width: 900px;
   margin: auto;
 }
 
 .section-title {
-  margin: 25px 0 15px;
+  margin: 15px 0;
+  font-size: 22px;
 }
 
-.chapter {
+.chapter-card {
   background: #1e293b;
   border: 1px solid #334155;
   border-radius: 12px;
-  padding: 17px;
-  margin-bottom: 12px;
+  padding: 18px;
+  margin-bottom: 13px;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.chapter:hover {
+.chapter-card:hover {
   background: #29384f;
 }
 
-.chapter h3 {
+.chapter-card h3 {
   margin: 0 0 8px;
+  font-size: 19px;
 }
 
-.chapter p {
+.chapter-card p {
   margin: 0;
   color: #94a3b8;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 #question-area {
   display: none;
+  margin-top: 10px;
+}
+
+.question-card {
   background: #1e293b;
-  border-radius: 14px;
-  padding: 20px;
-  margin-top: 25px;
+  border: 1px solid #334155;
+  border-radius: 13px;
+  padding: 19px;
+  margin-bottom: 16px;
+}
+
+.question-text {
+  font-size: 19px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+
+.options {
+  font-size: 18px;
+  line-height: 1.85;
+  color: #e2e8f0;
+}
+
+details {
+  margin-top: 17px;
+  border-top: 1px solid #475569;
+  padding-top: 13px;
+}
+
+summary {
+  cursor: pointer;
+  color: #93c5fd;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.answer {
+  font-size: 18px;
+  margin-top: 12px;
+  color: #86efac;
+  line-height: 1.5;
 }
 
 button {
   background: #2563eb;
   color: white;
   border: none;
-  padding: 12px 18px;
+  padding: 13px 18px;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 12px;
+  font-size: 16px;
+  margin-bottom: 17px;
 }
 
 footer {
   text-align: center;
   color: #64748b;
   padding: 25px;
+}
+
+@media (max-width: 600px) {
+  .question-text {
+    font-size: 19px;
+  }
+
+  .options {
+    font-size: 18px;
+  }
+
+  .chapter-card h3 {
+    font-size: 18px;
+  }
 }
 </style>
 </head>
@@ -101,248 +157,113 @@ footer {
 <header>
   <a class="back" href="index.html">← Back to Dashboard</a>
   <h1>⚛️ Physics PYQs</h1>
-  <p>NEET Previous Year Questions — Chapter-wise Practice</p>
+  <p>NEET Physics — Chapter-wise Questions</p>
 </header>
 
 <div class="container">
 
-  <h2 class="section-title">📚 Select Chapter</h2>
+  <!-- CHAPTER LIST -->
+  <div id="chapter-list">
+    <h2 class="section-title">📚 Select Chapter</h2>
 
-  function openChapter(chapter) {
-  document.getElementById("question-area").style.display = "block";
-  document.getElementById("selected-chapter").innerText = chapter;
+    <div class="chapter-card" onclick="openChapter('Units and Measurements')">
+      <h3>1. Units and Measurements</h3>
+      <p>Units, dimensions, errors and measurements</p>
+    </div>
 
-  let content = "";
+    <div class="chapter-card" onclick="openChapter('Motion in a Straight Line')">
+      <h3>2. Motion in a Straight Line</h3>
+      <p>Distance, displacement, velocity and acceleration</p>
+    </div>
 
-  if (chapter === "Units and Measurements") {
-    content = `
-      <h3>Units & Measurements</h3>
-      <p>2019–2026 PYQ-concept practice set</p>
+    <div class="chapter-card" onclick="openChapter('Motion in a Plane')">
+      <h3>3. Motion in a Plane</h3>
+      <p>Vectors and projectile motion</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q1.</b> The dimensional formula of energy is:</p>
-        <p>A) ML²T⁻² &nbsp; B) MLT⁻¹<br>
-        C) ML⁻¹T⁻² &nbsp; D) MLT⁻²</p>
-        <details><summary><b>Answer</b></summary><p>A) ML²T⁻²</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Laws of Motion')">
+      <h3>4. Laws of Motion</h3>
+      <p>Newton's laws and friction</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q2.</b> If the radius of a sphere has 2% error, the percentage error in its volume is:</p>
-        <p>A) 2% &nbsp; B) 4% &nbsp; C) 6% &nbsp; D) 8%</p>
-        <details><summary><b>Answer</b></summary><p>C) 6%</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Work Energy and Power')">
+      <h3>5. Work, Energy and Power</h3>
+      <p>Work, energy and power</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q3.</b> How many significant figures are present in 0.005060?</p>
-        <p>A) 2 &nbsp; B) 3 &nbsp; C) 4 &nbsp; D) 5</p>
-        <details><summary><b>Answer</b></summary><p>C) 4</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Rotational Motion')">
+      <h3>6. Rotational Motion</h3>
+      <p>Torque and angular momentum</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q4.</b> The dimensional formula of pressure is:</p>
-        <p>A) ML⁻¹T⁻² &nbsp; B) MLT⁻²<br>
-        C) ML²T⁻² &nbsp; D) ML⁻²T⁻¹</p>
-        <details><summary><b>Answer</b></summary><p>A) ML⁻¹T⁻²</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Gravitation')">
+      <h3>7. Gravitation</h3>
+      <p>Gravity, satellites and gravitational energy</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q5.</b> A length is measured as (5.0 ± 0.1) cm. Its percentage error is:</p>
-        <p>A) 1% &nbsp; B) 2% &nbsp; C) 5% &nbsp; D) 10%</p>
-        <details><summary><b>Answer</b></summary><p>B) 2%</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Thermodynamics')">
+      <h3>8. Thermodynamics</h3>
+      <p>Heat, work and thermodynamic processes</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q6.</b> Which quantity is dimensionless?</p>
-        <p>A) Force &nbsp; B) Pressure<br>
-        C) Strain &nbsp; D) Energy</p>
-        <details><summary><b>Answer</b></summary><p>C) Strain</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Oscillations')">
+      <h3>9. Oscillations</h3>
+      <p>Simple harmonic motion</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q7.</b> The least count of a Vernier caliper is 0.01 cm. Main scale reading is 2.4 cm and Vernier coincidence is 5. The reading (zero error absent) is:</p>
-        <p>A) 2.40 cm &nbsp; B) 2.45 cm<br>
-        C) 2.50 cm &nbsp; D) 2.05 cm</p>
-        <details><summary><b>Answer</b></summary><p>B) 2.45 cm</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Waves')">
+      <h3>10. Waves</h3>
+      <p>Wave motion and sound</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q8.</b> If x = a²b³ and percentage errors in a and b are 1% and 2%, respectively, the maximum percentage error in x is:</p>
-        <p>A) 4% &nbsp; B) 6% &nbsp; C) 8% &nbsp; D) 10%</p>
-        <details><summary><b>Answer</b></summary><p>B) 8%</p></details>
-      </div>
-    `;
-  } else {
-    content = "<p>Questions will be added soon.</p>";
-  }
+    <div class="chapter-card" onclick="openChapter('Electrostatics')">
+      <h3>11. Electrostatics</h3>
+      <p>Electric charge, field and potential</p>
+    </div>
 
-  document.getElementById("chapter-message").innerHTML = content;
-  document.getElementById("question-area").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-function openChapter(chapter) {
-  document.getElementById("question-area").style.display = "block";
-  document.getElementById("selected-chapter").innerText = chapter;
+    <div class="chapter-card" onclick="openChapter('Current Electricity')">
+      <h3>12. Current Electricity</h3>
+      <p>Current, resistance and circuits</p>
+    </div>
 
-  let content = "";
+    <div class="chapter-card" onclick="openChapter('Magnetism')">
+      <h3>13. Magnetism</h3>
+      <p>Magnetic fields and forces</p>
+    </div>
 
-  if (chapter === "Units and Measurements") {
-    content = `
-      <h3>Units & Measurements</h3>
-      <p>2019–2026 PYQ-concept practice set</p>
+    <div class="chapter-card" onclick="openChapter('Electromagnetic Induction')">
+      <h3>14. Electromagnetic Induction</h3>
+      <p>Faraday's law and induced current</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q1.</b> The dimensional formula of energy is:</p>
-        <p>A) ML²T⁻² &nbsp; B) MLT⁻¹<br>
-        C) ML⁻¹T⁻² &nbsp; D) MLT⁻²</p>
-        <details><summary><b>Answer</b></summary><p>A) ML²T⁻²</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Alternating Current')">
+      <h3>15. Alternating Current</h3>
+      <p>AC circuits and reactance</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q2.</b> If the radius of a sphere has 2% error, the percentage error in its volume is:</p>
-        <p>A) 2% &nbsp; B) 4% &nbsp; C) 6% &nbsp; D) 8%</p>
-        <details><summary><b>Answer</b></summary><p>C) 6%</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Optics')">
+      <h3>16. Optics</h3>
+      <p>Ray optics and wave optics</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q3.</b> How many significant figures are present in 0.005060?</p>
-        <p>A) 2 &nbsp; B) 3 &nbsp; C) 4 &nbsp; D) 5</p>
-        <details><summary><b>Answer</b></summary><p>C) 4</p></details>
-      </div>
+    <div class="chapter-card" onclick="openChapter('Modern Physics')">
+      <h3>17. Modern Physics</h3>
+      <p>Atoms, nuclei and dual nature</p>
+    </div>
 
-      <div class="chapter">
-        <p><b>Q4.</b> The dimensional formula of pressure is:</p>
-        <p>A) ML⁻¹T⁻² &nbsp; B) MLT⁻²<br>
-        C) ML²T⁻² &nbsp; D) ML⁻²T⁻¹</p>
-        <details><summary><b>Answer</b></summary><p>A) ML⁻¹T⁻²</p></details>
-      </div>
-
-      <div class="chapter">
-        <p><b>Q5.</b> A length is measured as (5.0 ± 0.1) cm. Its percentage error is:</p>
-        <p>A) 1% &nbsp; B) 2% &nbsp; C) 5% &nbsp; D) 10%</p>
-        <details><summary><b>Answer</b></summary><p>B) 2%</p></details>
-      </div>
-
-      <div class="chapter">
-        <p><b>Q6.</b> Which quantity is dimensionless?</p>
-        <p>A) Force &nbsp; B) Pressure<br>
-        C) Strain &nbsp; D) Energy</p>
-        <details><summary><b>Answer</b></summary><p>C) Strain</p></details>
-      </div>
-
-      <div class="chapter">
-        <p><b>Q7.</b> The least count of a Vernier caliper is 0.01 cm. Main scale reading is 2.4 cm and Vernier coincidence is 5. The reading (zero error absent) is:</p>
-        <p>A) 2.40 cm &nbsp; B) 2.45 cm<br>
-        C) 2.50 cm &nbsp; D) 2.05 cm</p>
-        <details><summary><b>Answer</b></summary><p>B) 2.45 cm</p></details>
-      </div>
-
-      <div class="chapter">
-        <p><b>Q8.</b> If x = a²b³ and percentage errors in a and b are 1% and 2%, respectively, the maximum percentage error in x is:</p>
-        <p>A) 4% &nbsp; B) 6% &nbsp; C) 8% &nbsp; D) 10%</p>
-        <details><summary><b>Answer</b></summary><p>B) 8%</p></details>
-      </div>
-    `;
-  } else {
-    content = "<p>Questions will be added soon.</p>";
-  }
-
-  document.getElementById("chapter-message").innerHTML = content;
-  document.getElementById("question-area").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-  <div class="chapter" onclick="openChapter('Motion in a Straight Line')">
-    <h3>Motion in a Straight Line</h3>
-    <p>Distance, displacement, velocity & acceleration</p>
+    <div class="chapter-card" onclick="openChapter('Semiconductors')">
+      <h3>18. Semiconductors</h3>
+      <p>Electronic devices</p>
+    </div>
   </div>
 
-  <div class="chapter" onclick="openChapter('Motion in a Plane')">
-    <h3>Motion in a Plane</h3>
-    <p>Vectors & projectile motion</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Laws of Motion')">
-    <h3>Laws of Motion</h3>
-    <p>Newton's laws & friction</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Work Energy and Power')">
-    <h3>Work, Energy and Power</h3>
-    <p>Work, energy & power</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Rotational Motion')">
-    <h3>Rotational Motion</h3>
-    <p>Torque, angular momentum & rotation</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Gravitation')">
-    <h3>Gravitation</h3>
-    <p>Gravity, satellites & gravitational energy</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Thermodynamics')">
-    <h3>Thermodynamics</h3>
-    <p>Heat, work & thermodynamic processes</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Oscillations')">
-    <h3>Oscillations</h3>
-    <p>Simple harmonic motion</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Waves')">
-    <h3>Waves</h3>
-    <p>Wave motion & sound</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Electrostatics')">
-    <h3>Electrostatics</h3>
-    <p>Electric charge, field & potential</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Current Electricity')">
-    <h3>Current Electricity</h3>
-    <p>Current, resistance & circuits</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Magnetism')">
-    <h3>Magnetism</h3>
-    <p>Magnetic field & force</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Electromagnetic Induction')">
-    <h3>Electromagnetic Induction</h3>
-    <p>Faraday's law & induced current</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Alternating Current')">
-    <h3>Alternating Current</h3>
-    <p>AC circuits & reactance</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Optics')">
-    <h3>Optics</h3>
-    <p>Ray optics & wave optics</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Modern Physics')">
-    <h3>Modern Physics</h3>
-    <p>Atoms, nuclei & dual nature</p>
-  </div>
-
-  <div class="chapter" onclick="openChapter('Semiconductors')">
-    <h3>Semiconductors</h3>
-    <p>Electronic devices</p>
-  </div>
-
+  <!-- QUESTIONS -->
   <div id="question-area">
-    <h2 id="selected-chapter"></h2>
-    <p id="chapter-message">
-      Questions for this chapter will be added here.
-    </p>
-    <button onclick="hideChapter()">← Back to Chapters</button>
+    <button onclick="backToChapters()">← Back to Chapters</button>
+
+    <h2 id="selected-chapter" class="section-title"></h2>
+
+    <div id="question-content"></div>
   </div>
 
 </div>
@@ -352,21 +273,182 @@ function openChapter(chapter) {
 </footer>
 
 <script>
+
 function openChapter(chapter) {
+  document.getElementById("chapter-list").style.display = "none";
   document.getElementById("question-area").style.display = "block";
   document.getElementById("selected-chapter").innerText = chapter;
-  document.getElementById("chapter-message").innerText =
-    "PYQs and MCQ practice for " + chapter +
-    " will be added here.";
-  document.getElementById("question-area").scrollIntoView({
-    behavior: "smooth"
-  });
+
+  let content = "";
+
+  if (chapter === "Units and Measurements") {
+
+    content = `
+      <p style="color:#94a3b8; font-size:16px;">
+        Practice questions • Answers hidden
+      </p>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q1.</b> The dimensional formula of energy is:
+        </p>
+        <div class="options">
+          A) ML²T⁻²<br>
+          B) MLT⁻¹<br>
+          C) ML⁻¹T⁻²<br>
+          D) MLT⁻²
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: A) ML²T⁻²</div>
+        </details>
+      </div>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q2.</b> If the radius of a sphere has 2% error, the percentage error in its volume is:
+        </p>
+        <div class="options">
+          A) 2%<br>
+          B) 4%<br>
+          C) 6%<br>
+          D) 8%
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: C) 6%</div>
+        </details>
+      </div>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q3.</b> How many significant figures are present in 0.005060?
+        </p>
+        <div class="options">
+          A) 2<br>
+          B) 3<br>
+          C) 4<br>
+          D) 5
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: C) 4</div>
+        </details>
+      </div>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q4.</b> The dimensional formula of pressure is:
+        </p>
+        <div class="options">
+          A) ML⁻¹T⁻²<br>
+          B) MLT⁻²<br>
+          C) ML²T⁻²<br>
+          D) ML⁻²T⁻¹
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: A) ML⁻¹T⁻²</div>
+        </details>
+      </div>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q5.</b> A length is measured as (5.0 ± 0.1) cm. Its percentage error is:
+        </p>
+        <div class="options">
+          A) 1%<br>
+          B) 2%<br>
+          C) 5%<br>
+          D) 10%
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: B) 2%</div>
+        </details>
+      </div>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q6.</b> Which quantity is dimensionless?
+        </p>
+        <div class="options">
+          A) Force<br>
+          B) Pressure<br>
+          C) Strain<br>
+          D) Energy
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: C) Strain</div>
+        </details>
+      </div>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q7.</b> The least count of a Vernier caliper is 0.01 cm. Main scale reading is 2.4 cm and Vernier coincidence is 5. The reading (zero error absent) is:
+        </p>
+        <div class="options">
+          A) 2.40 cm<br>
+          B) 2.45 cm<br>
+          C) 2.50 cm<br>
+          D) 2.05 cm
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: B) 2.45 cm</div>
+        </details>
+      </div>
+
+      <div class="question-card">
+        <p class="question-text">
+          <b>Q8.</b> If x = a²b³ and percentage errors in a and b are 1% and 2%, respectively, the maximum percentage error in x is:
+        </p>
+        <div class="options">
+          A) 4%<br>
+          B) 6%<br>
+          C) 8%<br>
+          D) 10%
+        </div>
+        <details>
+          <summary>Answer</summary>
+          <div class="answer">Correct option: C) 8%</div>
+        </details>
+      </div>
+    `;
+
+  } else {
+
+    content = `
+      <div class="question-card">
+        <p class="question-text">
+          Questions for <b>${chapter}</b> will be added here.
+        </p>
+      </div>
+    `;
+
+  }
+
+  document.getElementById("question-content").innerHTML = content;
+  window.scrollTo(0, 0);
 }
 
-function hideChapter() {
+function backToChapters() {
   document.getElementById("question-area").style.display = "none";
+  document.getElementById("chapter-list").style.display = "block";
+  window.scrollTo(0, 0);
 }
+
 </script>
 
 </body>
 </html>
+
+
+
+  
+      
+
+  
+
+  

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Units & Measurement | 60 NEET Practice MCQs</title>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin:0; font-family:Arial, sans-serif; background:#0f172a; color:#e5e7eb; }
+.wrap { max-width:920px; margin:auto; padding:24px 16px 48px; }
+header { margin-bottom:22px; }
+h1 { margin:0 0 8px; font-size:clamp(24px,4vw,34px); }
+.sub { color:#94a3b8; }
+.progress-wrap { background:#1e293b; border-radius:12px; padding:14px; margin:18px 0; }
+.progress-line { height:8px; background:#334155; border-radius:8px; overflow:hidden; margin-top:10px; }
+.progress-fill { height:100%; width:0; background:#38bdf8; transition:width .25s; }
+.controls { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 20px; }
+button { border:0; border-radius:9px; padding:10px 14px; cursor:pointer; font-weight:700; }
+.primary { background:#38bdf8; color:#082f49; }
+.secondary { background:#334155; color:#e2e8f0; }
+.card { background:#172033; border:1px solid #29364b; border-radius:14px; padding:18px; margin:14px 0; }
+.qtitle { color:#7dd3fc; font-size:14px; font-weight:700; margin-bottom:10px; }
+.question { font-size:17px; line-height:1.55; margin:0 0 14px; }
+.options { display:grid; gap:9px; }
+.option { background:#202b40; border:1px solid #34445e; padding:10px 12px; border-radius:9px; line-height:1.45; }
+.answer { display:none; margin-top:12px; border-radius:9px; padding:11px 12px; background:#123329; color:#a7f3d0; border:1px solid #23634a; }
+.answer.show { display:block; }
+.card button { margin-top:12px; }
+footer { color:#94a3b8; font-size:13px; margin-top:28px; }
+@media(max-width:520px) { .wrap {padding:18px 12px 32px;} .card {padding:14px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Units & Measurement</h1>
+<div class="sub">60 Original NEET-Level Practice MCQs · Physics</div>
+</header>
+<div class="progress-wrap">
+<div><strong id="count">0</strong> / 60 answers revealed</div>
+<div class="progress-line"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="controls">
+<button class="primary" id="revealAll">Reveal all answers</button>
+<button class="secondary" id="hideAll">Hide all answers</button>
+</div>
+<div id="quiz"></div>
+<footer>Practice set created for NEET Study Hub. These are original practice questions, not copied PYQs.</footer>
+</div>
+<script>
+const questions = [{"question": "The dimensional formula of force is:", "options": ["[MLT⁻¹]", "[MLT⁻²]", "[ML²T⁻²]", "[M⁰LT⁻²]"], "answer": "B"}, {"question": "The SI unit of pressure is equivalent to:", "options": ["kg m s⁻²", "kg m⁻¹ s⁻²", "kg m² s⁻²", "kg m⁻² s⁻¹"], "answer": "B"}, {"question": "Which quantity is dimensionless?", "options": ["Work", "Angular momentum", "Refractive index", "Pressure"], "answer": "C"}, {"question": "The dimensional formula of work is:", "options": ["[MLT⁻²]", "[ML²T⁻²]", "[ML²T⁻¹]", "[M⁰L²T⁻²]"], "answer": "B"}, {"question": "The dimensional formula of power is:", "options": ["[ML²T⁻³]", "[MLT⁻²]", "[ML²T⁻²]", "[M⁰L²T⁻³]"], "answer": "A"}, {"question": "The SI unit of impulse is:", "options": ["N m", "N s", "J s", "kg m s⁻²"], "answer": "B"}, {"question": "Which pair has the same dimensions?", "options": ["Force and energy", "Pressure and energy density", "Power and torque", "Momentum and force"], "answer": "B"}, {"question": "The dimensional formula of density is:", "options": ["[ML⁻³]", "[M⁻¹L³]", "[ML³]", "[M⁰L⁻³]"], "answer": "A"}, {"question": "The dimensional formula of gravitational constant G is:", "options": ["[M⁻¹L³T⁻²]", "[ML³T⁻²]", "[M⁻¹L²T⁻¹]", "[ML⁻²T⁻²]"], "answer": "A"}, {"question": "The dimensional formula of Planck constant is:", "options": ["[MLT⁻¹]", "[ML²T⁻¹]", "[ML²T⁻²]", "[M⁰L²T⁻¹]"], "answer": "B"}, {"question": "One nanometre equals:", "options": ["10⁻⁶ m", "10⁻⁹ m", "10⁻¹² m", "10⁻³ m"], "answer": "B"}, {"question": "One micrometre equals:", "options": ["10⁻³ m", "10⁻⁶ m", "10⁻⁹ m", "10⁻¹⁰ m"], "answer": "B"}, {"question": "The number of significant figures in 0.004050 is:", "options": ["2", "3", "4", "5"], "answer": "C"}, {"question": "The number of significant figures in 2.300 is:", "options": ["2", "3", "4", "5"], "answer": "C"}, {"question": "Which is the correct scientific notation of 0.000072?", "options": ["72 × 10⁻⁶", "7.2 × 10⁻⁵", "0.72 × 10⁻⁴", "7.2 × 10⁻⁴"], "answer": "B"}, {"question": "The SI base unit of luminous intensity is:", "options": ["Lumen", "Lux", "Candela", "Watt"], "answer": "C"}, {"question": "The SI base unit of amount of substance is:", "options": ["Gram", "Mole", "Kilogram", "Atom"], "answer": "B"}, {"question": "Which is not an SI base quantity?", "options": ["Length", "Electric current", "Force", "Temperature"], "answer": "C"}, {"question": "The dimensions of frequency are:", "options": ["[T]", "[T⁻¹]", "[LT⁻¹]", "[L⁻¹]"], "answer": "B"}, {"question": "The dimensional formula of acceleration is:", "options": ["[LT⁻¹]", "[LT⁻²]", "[L²T⁻²]", "[MLT⁻²]"], "answer": "B"}, {"question": "If x = vt, the dimensions of x are:", "options": ["[LT⁻¹]", "[L]", "[T]", "[LT]"], "answer": "B"}, {"question": "Which equation is dimensionally consistent?", "options": ["v = u + at", "v = u + a/t", "s = vt²", "F = mv"], "answer": "A"}, {"question": "The dimensional formula of torque is:", "options": ["[MLT⁻²]", "[ML²T⁻²]", "[ML²T⁻¹]", "[M⁰L²T⁻²]"], "answer": "B"}, {"question": "The dimensions of angular momentum are:", "options": ["[MLT⁻¹]", "[ML²T⁻¹]", "[ML²T⁻²]", "[M⁰L²T⁻¹]"], "answer": "B"}, {"question": "The dimensions of surface tension are:", "options": ["[MT⁻²]", "[MLT⁻²]", "[ML⁻¹T⁻²]", "[M⁰T⁻²]"], "answer": "A"}, {"question": "The dimensional formula of viscosity (dynamic) is:", "options": ["[ML⁻¹T⁻¹]", "[MLT⁻¹]", "[M⁰L⁻¹T⁻¹]", "[ML⁻²T⁻²]"], "answer": "A"}, {"question": "The dimensional formula of Young's modulus is same as that of:", "options": ["Energy", "Pressure", "Force", "Power"], "answer": "B"}, {"question": "The dimensional formula of electric charge is:", "options": ["[IT]", "[IT⁻¹]", "[MLT⁻²]", "[I²T]"], "answer": "A"}, {"question": "The dimensions of resistance are:", "options": ["[ML²T⁻³I⁻²]", "[ML²T⁻²I⁻¹]", "[MLT⁻³I⁻²]", "[M⁰L²T⁻¹I⁻¹]"], "answer": "A"}, {"question": "The dimensional formula of capacitance is:", "options": ["[M⁻¹L⁻²T⁴I²]", "[ML²T⁻³I⁻²]", "[M⁻¹L⁻²T²I²]", "[MLT⁻²I⁻¹]"], "answer": "A"}, {"question": "If length is measured with 2% error, the error in area of a square is approximately:", "options": ["1%", "2%", "4%", "8%"], "answer": "C"}, {"question": "If radius of a sphere has 1% error, percentage error in its volume is:", "options": ["1%", "2%", "3%", "4%"], "answer": "C"}, {"question": "For Z = A²B³, percentage errors in A and B are 1% and 2%, respectively. Error in Z is:", "options": ["4%", "6%", "8%", "10%"], "answer": "C"}, {"question": "If a measured quantity is 5.0 ± 0.1, its relative error is:", "options": ["0.01", "0.02", "0.05", "0.1"], "answer": "B"}, {"question": "The least count of a metre scale having 1 mm divisions is:", "options": ["1 cm", "1 mm", "0.1 mm", "10 mm"], "answer": "B"}, {"question": "A vernier has 10 divisions equal to 9 main-scale divisions. If 1 MSD = 1 mm, its least count is:", "options": ["1 mm", "0.9 mm", "0.1 mm", "0.01 mm"], "answer": "C"}, {"question": "A screw gauge has pitch 1 mm and 100 divisions on circular scale. Its least count is:", "options": ["1 mm", "0.1 mm", "0.01 mm", "0.001 mm"], "answer": "C"}, {"question": "A vernier caliper has least count 0.01 cm. Main-scale reading is 2.4 cm and 6th division coincides. Reading (zero error absent) is:", "options": ["2.40 cm", "2.46 cm", "2.06 cm", "2.64 cm"], "answer": "B"}, {"question": "A screw gauge has pitch 0.5 mm and 50 divisions. Least count is:", "options": ["0.1 mm", "0.01 mm", "0.05 mm", "0.5 mm"], "answer": "B"}, {"question": "If a stopwatch has least count 0.1 s, which time can it directly record to its resolution?", "options": ["2.34 s", "2.3 s", "2.345 s", "2.3456 s"], "answer": "B"}, {"question": "The dimensional method cannot determine:", "options": ["Dimensions of a constant", "Dependence on variables", "Numerical dimensionless constant", "Unit consistency"], "answer": "C"}, {"question": "In an equation, terms added or subtracted must have:", "options": ["Same numerical value", "Same dimensions", "Same units only", "Different dimensions"], "answer": "B"}, {"question": "The dimensional formula of energy is:", "options": ["[ML²T⁻²]", "[MLT⁻¹]", "[ML²T⁻¹]", "[MLT⁻³]"], "answer": "A"}, {"question": "The dimensions of pressure are:", "options": ["[ML⁻¹T⁻²]", "[MLT⁻²]", "[ML²T⁻²]", "[M⁰L⁻¹T⁻²]"], "answer": "A"}, {"question": "The dimensional formula of momentum is:", "options": ["[MLT⁻¹]", "[MLT⁻²]", "[ML²T⁻¹]", "[M⁰LT⁻¹]"], "answer": "A"}, {"question": "Which one is a derived SI unit?", "options": ["Kelvin", "Ampere", "Newton", "Mole"], "answer": "C"}, {"question": "The SI unit of plane angle is:", "options": ["Degree", "Radian", "Steradian", "Turn"], "answer": "B"}, {"question": "The SI unit of solid angle is:", "options": ["Radian", "Degree", "Steradian", "Candela"], "answer": "C"}, {"question": "The dimensional formula of magnetic field is:", "options": ["[MT⁻²I⁻¹]", "[MLT⁻²I⁻¹]", "[MT⁻¹I⁻¹]", "[ML²T⁻²I⁻¹]"], "answer": "A"}, {"question": "The dimensional formula of magnetic flux is:", "options": ["[ML²T⁻²I⁻¹]", "[MT⁻²I⁻¹]", "[MLT⁻¹I⁻¹]", "[ML²T⁻¹I⁻¹]"], "answer": "A"}, {"question": "The dimensions of the universal gas constant are:", "options": ["[ML²T⁻²K⁻¹mol⁻¹]", "[MLT⁻²K⁻¹]", "[ML²T⁻¹K⁻¹]", "[M⁰L²T⁻²K⁻¹]"], "answer": "A"}, {"question": "The dimensional formula of Boltzmann constant is:", "options": ["[ML²T⁻²K⁻¹]", "[MLT⁻²K⁻¹]", "[ML²T⁻¹K⁻¹]", "[M⁰L²T⁻²K⁻¹]"], "answer": "A"}, {"question": "A quantity has dimensions [ML⁻¹T⁻²]. It may represent:", "options": ["Force", "Pressure", "Energy", "Power"], "answer": "B"}, {"question": "A quantity with dimensions [ML²T⁻³] represents:", "options": ["Energy", "Power", "Torque", "Impulse"], "answer": "B"}, {"question": "If x = 3.20 cm and y = 2.1 cm, x + y with appropriate significant figures is:", "options": ["5.30 cm", "5.3 cm", "5.300 cm", "5.31 cm"], "answer": "B"}, {"question": "The result of 2.5 × 3.42 with significant figures is:", "options": ["8.550", "8.6", "8.55", "9"], "answer": "B"}, {"question": "The number 1000 written without a decimal point has how many unambiguously significant figures?", "options": ["1", "2", "3", "4"], "answer": "A"}, {"question": "Which prefix represents 10⁶?", "options": ["Milli", "Micro", "Mega", "Nano"], "answer": "C"}, {"question": "Which prefix represents 10⁻¹²?", "options": ["Pico", "Nano", "Micro", "Femto"], "answer": "A"}, {"question": "A physical quantity is measured as 20 units with 5% uncertainty. Absolute uncertainty is:", "options": ["0.5", "1", "2", "5"], "answer": "B"}];
+const letters = ["A","B","C","D"];
+const quiz = document.getElementById("quiz");
+questions.forEach((item, idx) => {
+  const card = document.createElement("section");
+  card.className = "card";
+  const options = item.options.map((opt, i) =>
+    `<div class="option"><strong>(${letters[i]})</strong> ${opt}</div>`
+  ).join("");
+  card.innerHTML = `
+    <div class="qtitle">QUESTION ${idx+1}</div>
+    <p class="question">${item.question}</p>
+    <div class="options">${options}</div>
+    <div class="answer" id="answer-${idx}"><strong>Correct answer: (${item.answer})</strong> ${item.options[letters.indexOf(item.answer)]}</div>
+    <button class="secondary" data-index="${idx}">Show answer</button>
+  `;
+  quiz.appendChild(card);
+});
+function updateProgress() {
+  const revealed = document.querySelectorAll(".answer.show").length;
+  document.getElementById("count").textContent = revealed;
+  document.getElementById("progress").style.width = (revealed / questions.length * 100) + "%";
+}
+document.querySelectorAll("[data-index]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const answer = document.getElementById("answer-" + btn.dataset.index);
+    answer.classList.toggle("show");
+    btn.textContent = answer.classList.contains("show") ? "Hide answer" : "Show answer";
+    updateProgress();
+  });
+});
+document.getElementById("revealAll").addEventListener("click", () => {
+  document.querySelectorAll(".answer").forEach(el => el.classList.add("show"));
+  document.querySelectorAll("[data-index]").forEach(btn => btn.textContent = "Hide answer");
+  updateProgress();
+});
+document.getElementById("hideAll").addEventListener("click", () => {
+  document.querySelectorAll(".answer").forEach(el => el.classList.remove("show"));
+  document.querySelectorAll("[data-index]").forEach(btn => btn.textContent = "Show answer");
+  updateProgress();
+});
+</script>
+</body>
+</html>
